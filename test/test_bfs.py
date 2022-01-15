@@ -1,27 +1,42 @@
 # write tests for bfs
 import pytest
-from search import graph
+import sys
+import networkx as nx
+sys.path.append('/Users/anaalmonte/Documents/Algorithms/project2/')
+from search import Graph
+
+
+
 
 @pytest.fixture
 def test_bfs_traversal():
     """
-    TODO: Write your unit test for a breadth-first
-    traversal here. Create an instance of your Graph class 
-    using the 'tiny_network.adjlist' file and assert 
-    that all nodes are being traversed (ie. returns 
-    the right number of nodes, in the right order, etc.)
+    Testing BFS traversal 
+    Test.adjlist is a small network created manually, see graph.png for representation
+    G_citation is created from the citation graph
     """
-    pass
+    G=Graph("./data/test.adjlist")
+    
+    assert G.bfs('A') == ['A', 'B', 'C', 'G', 'D', 'E', 'F']
+    
+    ## Z is isolated
+    assert G.bfs('Z')== None
+
+    G_citation=Graph("./data/tiny_network.adjlist")
+    # my bfs search such be the same lenght as netwrok ex traversal
+    assert len((G_citation.bfs('Luke Gilbert'))) == len(list(nx.bfs_tree(G_citation.graph,"Luke Gilbert")))
+
+
 
 def test_bfs():
     """
-    TODO: Write your unit test for your breadth-first 
-    search here. You should generate an instance of a Graph
-    class using the 'citation_network.adjlist' file 
-    and assert that nodes that are connected return 
-    a (shortest) path between them.
-    
-    Include an additional test for nodes that are not connected 
-    which should return None. 
+    Testing BFS traversal 
+    Test.adjlist is a small network created manually, see graph.png for representation
     """
-    pass
+    G=Graph("./data/test.adjlist")
+    assert G.bfs('A','E') == ['A', 'G', 'E']
+    
+    # There's no path between A and Z
+    assert G.bfs('A','Z') == None
+    
+

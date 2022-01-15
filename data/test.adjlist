@@ -1,0 +1,11 @@
+#/Users/anaalmonte/Documents/Algorithms/project2/data/generate_example.py
+# GMT Sat Jan 15 01:07:44 2022
+# 
+A;B;C;G
+B;D
+C
+D;G;F
+E
+Z
+F
+G;E
