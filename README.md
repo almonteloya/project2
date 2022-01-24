@@ -1,4 +1,4 @@
-! [BuildStatus](https://github.com/almonteloya/Project2/workflows/test.yml/badge.svg?event=push)
+![BuildStatus](https://github.com/almonteloya/Project2/workflows/test.yml/badge.svg?event=push)
 
 # Project 2
 Breadth-first search
